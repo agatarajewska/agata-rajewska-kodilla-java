@@ -6,10 +6,11 @@ public class TestingMain {
     public static void main(String[] args) {
         System.out.println("Moduł 6. Wprowadzenie to testowania oprogramowania");
 
-        Calculator myCalculator = new Calculator(20, 10);
+        Calculator myCalculator = new Calculator();
 
-        int adding = myCalculator.add();
-        int substracting = myCalculator.substract();
+
+        int adding = myCalculator.add(20,10);
+        int substracting = myCalculator.substract(20,10);
 
         if (adding == 30) {
             System.out.println("adding test is ok");
