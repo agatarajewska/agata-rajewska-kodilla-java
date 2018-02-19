@@ -12,7 +12,8 @@ import static org.junit.Assert.assertTrue;
 
 public class ShapeCollectorTestSuite {
 
-    private ShapeCollector shapeCollector;
+    private ShapeCollector shapeCollector = new ShapeCollector();
+
 
     @BeforeClass
     public static void beforeAllTests() {
@@ -66,7 +67,7 @@ public class ShapeCollectorTestSuite {
 
         shapeCollector.showFigures();
 
-        Assert.assertEquals( showFigures, shapeCollector.showFigures());
+        Assert.assertEquals(showFigures, shapeCollector.showFigures());
 
 
     }
