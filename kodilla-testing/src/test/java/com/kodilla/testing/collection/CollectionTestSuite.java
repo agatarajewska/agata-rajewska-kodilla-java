@@ -9,12 +9,12 @@ import java.util.ArrayList;
 public class CollectionTestSuite {
     @Before
     public void before() {
-        System.out.println("Beginning test:");
+        System.out.println("Beginning testing.");
     }
 
     @After
     public void after() {
-        System.out.println("End test." + "\n");
+        System.out.println("Testing end." + "\n");
     }
 
     @Test
@@ -30,7 +30,7 @@ public class CollectionTestSuite {
         Assert.assertEquals(0, resultList.size());
     }
 
-    @Test
+    /*@Test
     public void testOddNumbersExterminatorNormalList() {
 
         ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
@@ -62,6 +62,27 @@ public class CollectionTestSuite {
         ArrayList<Integer> result2 = checkEvenList.exterminate(oddNumbers);
         System.out.println("Testing ArrayList with odd numbers: " + result2);
         Assert.assertEquals(4, result2.size());
+        */
+
+
+    @Test
+    public void testOddNumbersExterminatorNormalList() {
+        //Given
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            numbers.add(i);
+        }
+        ArrayList<Integer> theEvenNumbers = new ArrayList<>();
+        for (int j = 0; j < 100; j += 2) {
+            theEvenNumbers.add(j);
+        }
+        //When
+        exterminator.exterminate(numbers);
+        //Then
+        Assert.assertEquals(theEvenNumbers, exterminator.exterminate(numbers));
+
+
     }
 }
 
