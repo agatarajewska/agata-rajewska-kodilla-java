@@ -1,8 +1,10 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.person.People;
 
 public class StreamMain {
     public static void main(String[] args) {
@@ -21,17 +23,17 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
         PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Ala", (text) -> {
-            return text + "ABC";
-        });
-        poemBeautifier.beautify("Ala", (text) -> {
-            return text.toUpperCase();
-        });
-        poemBeautifier.beautify("Ala", (text) -> {
-            return "Prefix: " + text;
-        });
-        poemBeautifier.beautify("Ala", (text) -> {
-            return text.replace('A', 'U');
-        });
+
+        System.out.println(poemBeautifier.beautify("Ala", (text) -> text+"ABC" ));
+        System.out.println(poemBeautifier.beautify("Ala", (text) -> text.toUpperCase()));
+
+        System.out.println(poemBeautifier.beautify("Ala", (text) -> "Prefix: "+text ));
+        System.out.println(poemBeautifier.beautify("Ala", (text) -> text.replace('A', 'U')));
+
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
     }
+
+
+
 }
