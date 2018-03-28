@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Collections;
 
 
-
 public class BookLibrary {
 
     LibraryDatabase libraryDatabase;
@@ -24,27 +23,17 @@ public class BookLibrary {
         return bookList;
     }
 
+
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        List<Book> bookList2 = new ArrayList<Book>();
+
         List<Book> listOfUserBooks = libraryDatabase.listBooksInHandsOf(libraryUser);
 
-        if (bookList2.size() > 0) return bookList2;
         if (listOfUserBooks == null) {
             return Collections.emptyList();
 
-            List<Book> listOfBooks = libraryDatabase.listBooksInHandsOf(libraryUser);
-
-            if (bookList2.size() == 0) return bookList2;
-            bookList2 = listOfBooks;
-
-            return listOfBooks;
         } else {
-
-
             return listOfUserBooks;
         }
-
-
     }
 }
 
