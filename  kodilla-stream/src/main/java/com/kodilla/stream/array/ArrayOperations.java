@@ -6,14 +6,16 @@ import java.util.stream.IntStream;
 
 public interface ArrayOperations {
 
-    public static double getAverage(int[] numbers){
+    public static double getAverage(int[] numbers) {
 
-        IntStream.range(1,numbers.length+1)
-                .forEach(n -> System.out.println(n));
+        IntStream.range(0, numbers.length)
+                .forEach(n -> System.out.println(numbers[n]));
 
-        OptionalDouble total = IntStream.range(1,numbers.length+1)
+        OptionalDouble total = IntStream.range(0, numbers.length)
+                .map(n -> numbers[n])
                 .average();
 
         return total.getAsDouble();
     }
+
 }
