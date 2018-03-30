@@ -126,7 +126,7 @@ public class BoardTestSuite {
         //When
         List<TaskList> undoneTasks = new ArrayList<>();
         undoneTasks.add(new TaskList("To do"));
-        undoneTasks.add(new TaskList("In progress"));
+        undoneTasks.add(new TaskList("In Progress"));
         List<Task> tasks = project.getTaskLists().stream()
                 .filter(undoneTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
