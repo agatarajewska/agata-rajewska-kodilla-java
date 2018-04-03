@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class FilghtReservations {
 
-    public void findFlight(Flight flight) throws RouteNotFoundException {
+    public Boolean findFlight(Flight flight) throws RouteNotFoundException {
         Map<String, Boolean> availableFlights = new HashMap<>();
         availableFlights.put("Radom", false);
         availableFlights.put("Warszawa", true);
@@ -17,21 +17,25 @@ public class FilghtReservations {
         if (!availableFlights.containsKey(flight.getArrivalAirport())) {
             throw new RouteNotFoundException();
         }
+        return availableFlights.get(flight.getArrivalAirport());
     }
 
     public static void main(String[] args) {
 
-        Flight flight = new Flight("Gdansk", "Berlin");
+        Flight flight = new Flight("Gdansk", "London");
 
         FilghtReservations filghtReservations = new FilghtReservations();
 
         try {
-            filghtReservations.findFlight(flight);
-            System.out.println("Pomyślnie znaleziono twój lot!");
+            if (filghtReservations.findFlight(flight)) {
+                System.out.println("Lot dostepny!");
+            } else {
+                System.out.println("Lot niedostepny!");
+            }
         } catch (RouteNotFoundException e) {
-            System.out.println("Nie znalaziono lotu. " + e);
+            System.out.println("Nie znalaziono takiego polaczenia. " + e);
         } finally {
-            System.out.println("Dziekujemy za skorzystanie z wyszukiwarki.");
+            System.out.println("Dziekujemy za skorzystanie z wyszukiwarki ");
         }
     }
 
