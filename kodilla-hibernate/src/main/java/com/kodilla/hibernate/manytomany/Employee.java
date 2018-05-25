@@ -6,6 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@NamedNativeQuery(
+        name = "Employee.retrieveEmployeeNameLike",
+        query = "SELECT * FROM Employees E" +
+                " WHERE firstname LIKE :PARAM",
+        resultClass = Employee.class
+)
 @NamedQuery(
         name = "Employee.retrieveEmployeeBySurname",
         query = "FROM Employee WHERE lastname = :LASTNAME"
