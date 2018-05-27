@@ -17,7 +17,7 @@ public class Facade {
     EmployeeDao employeeDao;
 
     public Company findCompanyByName(String name) {
-        return companyDao.retrieveCompanyNameLike(name).get(0);
+        return companyDao.retrieveCompanyNameLike("%"+name+"%").get(0);
     }
 
     public Employee findEmployee(String namePiece) {

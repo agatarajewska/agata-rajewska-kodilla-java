@@ -25,7 +25,7 @@ public class FacadeTestSuite {
     EmployeeDao employeeDao;
 
     @Test
-    public void test() {
+    public void testFindEmployee() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
 
@@ -42,13 +42,13 @@ public class FacadeTestSuite {
     }
 
     @Test
-    public void test2() {
+    public void testFindCompany() {
         //Given
         Company softwareMachine = new Company("Software Machine");
 
         //When
         companyDao.save(softwareMachine);
-        Company foundCompany = facade.findCompanyByName("Software Machine");
+        Company foundCompany = facade.findCompanyByName("Machine");
 
         //then
         Assert.assertEquals("Software Machine", foundCompany.getName());
@@ -58,3 +58,4 @@ public class FacadeTestSuite {
     }
 
 }
+
